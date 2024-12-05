@@ -1,5 +1,5 @@
 import { Row, Container } from 'react-bootstrap'
-import '../css/footer.css'
+import './index.css'
 import { Facebook,Instagram,Whatsapp } from 'react-bootstrap-icons';
 
 const Footer = () => {
