@@ -1,0 +1,16 @@
+.parragraph {
+    width: 50%;
+    color: rgb(67, 97, 131);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.parragraph-container {
+    margin: 80px 0px 80px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

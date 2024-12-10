@@ -1,29 +1,37 @@
-svg {
-  height: 25px;
-  width: 25px;
+.footer {
+  background-color: rgb(67, 97, 131);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px 0px 20px 0px;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-
-}
-#foot {
-    background-color: rgba(16, 16, 71, 0.896);
-
-}
-
-ul {
-  list-style: none;
-  padding-right: 30px;
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33.3%;
+  min-height: 100%;
+  gap: 10px;
 }
 
-#logoFooter {
-  height: 125px;
+.icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-@media all and (min-height: 577px) and (max-height: 768px) {
-  #logoFooter {
-    margin-bottom: 1.5rem;
+.footer-logo{
+  width: 200px;
+  height: 80px;
+}
+
+@media (min-width: 768px){
+  .footer{
+    flex-direction: row;
   }
 }

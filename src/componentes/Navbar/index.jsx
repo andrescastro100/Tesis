@@ -1,4 +1,3 @@
-import React from 'react'
 import './index.css';
 import logo from '../../assets/logo.jpeg'
 
@@ -12,7 +11,7 @@ const Header = () => {
       <nav className='navbar'>
         <a href="/">INICIO</a>
         <a href="/">VALORES</a>
-        <a href="/">NUESTRO SERVICIO</a>
+        <a href="/nuestro-servicio">NUESTRO SERVICIO</a>
         <a href="/">CONSULTAS</a>
         <a href="/">CONTACTO</a>
 

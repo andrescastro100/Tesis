@@ -1,23 +1,21 @@
-import Navbar from "./componentes/Navbar"
-import Slider from "./componentes/Slider"
-import Card from "./componentes/Card"
+import Navbar from "./componentes/Navbar";
 import Footer from "./componentes/Footer";
-import { cardArray } from "./utils/constants";
+import { Route } from "react-router";
+import { Routes } from "react-router";
+import Home from "./pages/Home";
+import NuestroServicio from "./pages/NuestroServicio";
+import Login from "./pages/Login";
 
-function App() {
-
-  //dsp hacer el enrutamiento
+export default function App() {
   return (
     <>
       <Navbar/>
-      <Slider/>
-      <section className="cards-container">
-      {cardArray.map(element => <Card key={element.title} item={element}/>)}
-
-      </section>
-      <Footer/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/nuestro-servicio" element={<NuestroServicio />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
-
-export default App
