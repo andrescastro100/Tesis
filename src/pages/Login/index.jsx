@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import "./index.css"; // Archivo CSS externo
 
@@ -7,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +16,7 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await axios.post("https://api.tuendpoint.com/login", {
+      const response = await axios.post("http://localhost:4000/api/usuarios/login", {
         email,
         password,
       });
@@ -23,6 +25,7 @@ const Login = () => {
       localStorage.setItem("token", response.data.token);
 
       alert("¡Inicio de sesión exitoso!");
+      navigate("/")
     } catch (err) {
       setError(err.response?.data?.message || "Error al iniciar sesión");
     } finally {
