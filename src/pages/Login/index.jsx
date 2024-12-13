@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "./index.css"; // Archivo CSS externo
+import "./index.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
