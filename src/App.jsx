@@ -5,6 +5,8 @@ import { Routes } from "react-router";
 import Home from "./pages/Home";
 import NuestroServicio from "./pages/NuestroServicio";
 import Login from "./pages/Login";
+import Contacto from "./pages/Contacto";
+import { Consultas } from "./pages/Consultas";
 
 export default function App() {
   return (
@@ -14,6 +16,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/nuestro-servicio" element={<NuestroServicio />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/consultas" element={<Consultas/>} />
       </Routes>
       <Footer />
     </>
