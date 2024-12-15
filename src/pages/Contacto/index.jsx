@@ -9,7 +9,7 @@ import "./index.css";
 
 export default function Contact() {
   return (
-    <section className="container">
+    <>
       <Title title="Contacto" />
       <section className="contact-container">
         <article className="icons">
@@ -26,6 +26,6 @@ export default function Contact() {
         </article>
       </section>
       <Map />
-    </section>
+    </>
   );
 }
