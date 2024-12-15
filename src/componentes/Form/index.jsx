@@ -9,13 +9,13 @@ const Form = () => {
     const data = Object.fromEntries(formData.entries()); 
 
     try {
-      const response = await axios.post('http://localhost:5000/endpoint', data, {
+      const response = await axios.post('http://localhost:4000/api/consulta', data, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert('Formulario enviado correctamente!');
       } else {
         alert('Hubo un error al enviar el formulario.');
@@ -31,23 +31,23 @@ const Form = () => {
       <form className="form" onSubmit={handleSubmit}>
         <h2>Consultas</h2>
         <div className="form-group">
-          <label htmlFor="firstName">Nombre</label>
-          <input type="text" id="firstName" name="firstName" required />
+          <label htmlFor="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required />
         </div>
 
         <div className="form-group">
-          <label htmlFor="lastName">Apellido</label>
-          <input type="text" id="lastName" name="lastName" required />
+          <label htmlFor="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" required />
         </div>
 
         <div className="form-group">
-          <label htmlFor="companyName">Nombre de la compañía</label>
-          <input type="text" id="companyName" name="companyName" />
+          <label htmlFor="compania">Compañía</label>
+          <input type="text" id="compania" name="compania" />
         </div>
 
         <div className="form-group">
-          <label htmlFor="phone">Teléfono</label>
-          <input type="tel" id="phone" name="phone" required />
+          <label htmlFor="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" required />
         </div>
 
         <div className="form-group">
@@ -56,8 +56,8 @@ const Form = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="message">Escriba su consulta</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+          <label htmlFor="consulta">Escriba su consulta</label>
+          <textarea id="consulta" name="consulta" rows="5" required></textarea>
         </div>
 
         <button type="submit" className="submit-button">Enviar</button>
