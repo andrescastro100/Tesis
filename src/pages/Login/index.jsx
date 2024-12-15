@@ -14,15 +14,18 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await axios.post("https://api.tuendpoint.com/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://api.tuendpoint.com/login",
+        {
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
       console.log("Inicio de sesión exitoso", response.data);
-      localStorage.setItem("token", response.data.token);
-
-      alert("¡Inicio de sesión exitoso!");
     } catch (err) {
       setError(err.response?.data?.message || "Error al iniciar sesión");
     } finally {

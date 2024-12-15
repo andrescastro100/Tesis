@@ -1,9 +1,29 @@
 import './index.css';
+import axios from 'axios';
 
 const Form = () => {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Formulario enviado!');
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries()); 
+
+    try {
+      const response = await axios.post('http://localhost:5000/endpoint', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.status === 200) {
+        alert('Formulario enviado correctamente!');
+      } else {
+        alert('Hubo un error al enviar el formulario.');
+      }
+    } catch (error) {
+      console.error('Error al enviar formulario:', error);
+      alert('Error en la conexión con el servidor.');
+    }
   };
 
   return (
