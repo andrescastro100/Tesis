@@ -1,30 +1,33 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import ConsultaTable from "../../componentes/ConsultaTable";
 
 export const Dashboard = () => {
+  const [consultas, setConsultas] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const consultas = [
-        {
-          nombre: 'Juan',
-          apellido: 'Pérez',
-          compania: 'Acme Inc.',
-          telefono: 5551234567,
-          email: 'juan@example.com',
-          consulta: 'Nacido en Galilea, en la región de Cana, San Judas Tadeo era un pariente cercano de Jesús, a menudo referido como “hermano” de Jesús en el sentido de ser un primo según la costumbre judía. Después de la muerte y resurrección de Jesús, San Judas Tadeo viajó extensamente para predicar el Evangelio',
-          respondido: false
-        },{
-            nombre: "Stefano",
-            apellido: "Ferrari",
-            compania: "Stefasito",
-            telefono: 3816685254,
-            email: "stefanoferrari.dev@gmail.com",
-            consulta: "Me gustaria hacerme monotributista, uds hacen ese tramite?",
-            respondido: true
-        }
-      ];
+  useEffect(() => {
+    const fetchConsultas = async () => {
+      try {
+        const response = await axios.get("https://api.example.com/consultas");
+        setConsultas(response?.data);
+      } catch (err) {
+        setError("Ocurrió un error al cargar los datos.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    return(
-        <>
-        <ConsultaTable consultas={consultas}/>
-        </>
-    );
+    fetchConsultas();
+  }, []);
+
+  //if (loading) return <p>Cargando...</p>;
+  //if (error) return <p>{error}</p>;
+
+  return (
+    <>
+      <ConsultaTable consultas={consultas} />
+    </>
+  );
 };
