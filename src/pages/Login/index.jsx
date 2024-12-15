@@ -16,16 +16,18 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:4000/api/usuarios/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/api/usuarios/login",
+        {
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
       console.log("Inicio de sesión exitoso", response.data);
-      localStorage.setItem("token", response.data.token);
-
-      alert("¡Inicio de sesión exitoso!");
-      navigate("/")
     } catch (err) {
       setError(err.response?.data?.message || "Error al iniciar sesión");
     } finally {
