@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ConsultaTable from "../../componentes/ConsultaTable";
+import "./index.css";
 
 export const Dashboard = () => {
   const [consultas, setConsultas] = useState([]);
@@ -22,8 +23,25 @@ export const Dashboard = () => {
     fetchConsultas();
   }, []);
 
-  //if (loading) return <p>Cargando...</p>;
-  //if (error) return <p>{error}</p>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p className="loading-text">Cargando...</p>
+      </div>
+    );
+  }
+ 
+  if (error) {
+    return (
+      <div className="error-container">
+        <div className="error-box">
+          <h2 className="error-title">Error</h2>
+          <p className="error-message">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

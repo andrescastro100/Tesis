@@ -37,3 +37,27 @@ export const cardArray = [
     ],
   },
 ];
+
+export const valoresTextArray = [{
+  title: "INTEGRIDAD",
+  text: "Nuestro equipo actua con honestidad y transparencia en todas sus actividades, garantizando que la información financiera refleje la realidad sin manipulaciones."
+},
+{
+  title: "CONFIDENCIALIDAD",
+  text: "La información financiera de los clientes es sensible y debe ser protegida. Convirtiendo la confidencialidad en uno de nuestros valores más importantes para que los datos no sean revelados."
+}, {
+  title: "PROFESIONALISMO",
+  text: "Actuamos de manera ética y con el nivel de competencia esperado en nuestra área, actualizando constantemente nuestros conocimientos en normativa contable y fiscal."
+},
+{
+  title: "RESPONSABILIDAD",
+  text: "Cumplimos con las normativas fiscales y contables, asegurándonos de que los registros sean precisos y oportunos para evitar sanciones legales.",
+},
+{
+  title: "INNOVACIÓN Y EFICIENCIA",
+  text: "Nuestro estudio contable cuenta con nuevas tecnologías, como software contable, software de administración para administrar consorcios y herramientas de análisis de datos, para optimizar procesos y mejorar la toma de decisiones."
+},
+{
+  title: "OBJETIVIDAD",
+  text: "Evitamos en cada momento de interés y mantenemos una postura imparcial en la preparación y auditoría de los estados financieros."
+}]

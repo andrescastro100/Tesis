@@ -1,6 +1,6 @@
 import Navbar from "./componentes/Navbar";
 import Footer from "./componentes/Footer";
-import { Route } from "react-router";
+import { Route, useNavigate } from "react-router";
 import { Routes } from "react-router";
 import Home from "./pages/Home";
 import NuestroServicio from "./pages/NuestroServicio";
@@ -16,6 +16,7 @@ import { useEffect } from "react";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = Cookies.get("token");
@@ -24,10 +25,12 @@ export default function App() {
 
   const login = () => {
     setIsAuthenticated(true);
+    navigate("/dashboard")
   };
 
   const logout = () => {
     setIsAuthenticated(false);
+    navigate("/")
   };
 
   return (

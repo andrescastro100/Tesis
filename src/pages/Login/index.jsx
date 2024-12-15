@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import axios from "axios";
 import "./index.css";
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +27,7 @@ const Login = () => {
         }
       );
 
+      login();
       console.log("Inicio de sesión exitoso", response.data);
     } catch (err) {
       setError(err.response?.data?.message || "Error al iniciar sesión");

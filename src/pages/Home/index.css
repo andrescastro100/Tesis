@@ -1,6 +1,23 @@
 .container-image {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px 40px 0px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 40px 0px;
+  width: 100%;
+}
+
+.valores-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: gray;
+  margin: 80px auto;
+  width: 60%;
+  text-align: left;
+}
+
+.valores-container h1 {
+    color: rgb(67, 97, 131);
+    text-align: center;
+    margin: 0px auto 30px auto;
 }
