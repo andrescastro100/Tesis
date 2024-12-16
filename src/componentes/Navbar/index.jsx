@@ -42,7 +42,7 @@ const Header = () => {
         <Link to="/nuestro-servicio">NUESTRO SERVICIO</Link>
         <Link to="/consultas">CONSULTAS</Link>
         <Link to="/contacto">CONTACTO</Link>
-        {true && (
+        {isAuthenticated && (
           <div>
             <button className="logout-btn" onClick={handleLogout}>
               LOGOUT

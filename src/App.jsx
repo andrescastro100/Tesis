@@ -10,7 +10,7 @@ import { Consultas } from "./pages/Consultas";
 import { useState } from "react";
 import { AuthContext } from "./context";
 import ProtectedRoute from "./componentes/ProtectedRoute";
-import  ConsultaTable  from "./componentes/ConsultaTable";
+import ConsultaTable from "./componentes/ConsultaTable";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 
@@ -20,17 +20,19 @@ export default function App() {
 
   useEffect(() => {
     const token = Cookies.get("token");
-    setIsAuthenticated(Boolean(token));
+    if (token) {
+      setIsAuthenticated(true);
+    }
   }, []);
 
   const login = () => {
     setIsAuthenticated(true);
-    navigate("/dashboard")
+    navigate("/dashboard");
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    navigate("/")
+    navigate("/");
   };
 
   return (
@@ -42,9 +44,9 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/consultas" element={<Consultas />} />
-        <Route path="/dashboard" element={<ConsultaTable />} />
 
         <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<ConsultaTable />} />
         </Route>
       </Routes>
       <Footer />
