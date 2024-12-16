@@ -16,7 +16,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "https://api.example.com/logout",
+        "http://localhost:4000/api/usuarios/logout",
         {},
         { withCredentials: true }
       );

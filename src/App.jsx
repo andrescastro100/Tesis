@@ -10,7 +10,7 @@ import { Consultas } from "./pages/Consultas";
 import { useState } from "react";
 import { AuthContext } from "./context";
 import ProtectedRoute from "./componentes/ProtectedRoute";
-import { Dashboard } from "./pages/Dashboard";
+import  ConsultaTable  from "./componentes/ConsultaTable";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 
@@ -42,7 +42,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/consultas" element={<Consultas />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<ConsultaTable />} />
 
         <Route element={<ProtectedRoute />}>
         </Route>

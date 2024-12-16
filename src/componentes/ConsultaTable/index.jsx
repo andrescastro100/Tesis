@@ -1,6 +1,27 @@
 import './index.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const ConsultaTable = ({ consultas = [] }) => {
+const ConsultaTable = () => {
+
+  const [consultas, setConsultas] = useState([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchConsultas = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/consulta');
+        setConsultas(response.data);
+        console.log('Datos recibidos:', response.data);
+        setError(false);
+      } catch (err) {
+        console.error('Error al cargar los datos:', err);
+        setError(true);
+      }
+    };
+
+    fetchConsultas();
+  }, []);
 
   return (
     <div className="consulta-table-container">
