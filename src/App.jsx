@@ -42,9 +42,10 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/consultas" element={<Consultas />} />
-        <Route path="/dashboard" element={<ConsultaTable />} />
+        
 
         <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<ConsultaTable />} />
         </Route>
       </Routes>
       <Footer />
