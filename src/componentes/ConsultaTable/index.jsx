@@ -1,6 +1,9 @@
 import "./index.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { TrashFill } from "react-bootstrap-icons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos de toast
 
 const ConsultaTable = () => {
   const [consultas, setConsultas] = useState([]);
@@ -24,7 +27,6 @@ const ConsultaTable = () => {
 
   const toggleRespondido = async (id, currentStatus) => {
     try {
-
       const response = await axios.put(
         `http://localhost:4000/api/consulta/${id}`,
         { respondido: !currentStatus }
@@ -38,10 +40,27 @@ const ConsultaTable = () => {
               : consulta
           )
         );
+        toast.success('Estado de la consulta actualizado.');
       }
     } catch (err) {
       console.error("Error al actualizar el estado de respondido:", err);
-      alert("No se pudo actualizar el estado de la consulta.");
+      toast.error('No se pudo actualizar el estado de la consulta.');
+    }
+  };
+
+  const deleteConsulta = async (id) => {
+    try {
+      const response = await axios.delete(`http://localhost:4000/api/consulta/${id}`);
+
+      if (response.status === 200) {
+        setConsultas((prevConsultas) =>
+          prevConsultas.filter((consulta) => consulta._id !== id)
+        );
+        toast.success("Consulta eliminada correctamente.");
+      }
+    } catch (err) {
+      console.error("Error al eliminar la consulta:", err);
+      toast.error("No se pudo eliminar la consulta.");
     }
   };
 
@@ -64,6 +83,7 @@ const ConsultaTable = () => {
                 <th>Email</th>
                 <th>Consulta</th>
                 <th>Respondido</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -86,12 +106,20 @@ const ConsultaTable = () => {
                       {consulta.respondido ? "Sí" : "No"}
                     </span>
                   </td>
+                  <td data-label="Acciones">
+                    <TrashFill
+                      className="delete-icon"
+                      onClick={() => deleteConsulta(consulta._id)}
+                      style={{ cursor: "pointer", color: "red" }}
+                    />
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };
